@@ -1,0 +1,134 @@
+﻿{
+	"how_to_solve_scenarios_title" : "How To Solve Scenarios",
+	"how_to_solve_scenarios_content":
+"LOAD a scenario:
+
+- First select a secenario by the \"Scenario\" selector;
+- Then, click \"Load\" button to load the scenario.
+
++-------------------------------+
+SOLVE a scenario:
+
+- Click \"Solve\" button to start solving a scenario.
+
++-------------------------------+
+CANCEL a solving process:
+
+- Click \"Cancel\" button (when solving a scenario, the same button used to start the process is used to cancel it).
+
++-------------------------------+
+PLAYBACK a solution:
+
+- After solving a scenario, the solution appear in the \"Solution\" text area. You may automatically reproduce it by pressing the \"Playback\" button;
+- You may change the playback speed by setting the \"Delay Between Moves\" value (in miliseconds. 1000ms = 1 second).
+
++-------------------------------+
+RELOAD after playback:
+
+- After reproducing a solution, you may reload the scenario without losing the solution. To do that, click the \"Reload\" button.
+",
+
+
+
+	"how_to_load_scenarios_title" : "How To Load Scenarios",
+	"how_to_load_scenarios_content":
+"Load scenarios while the application is open:
+
+- Load a scenario using the menu \"File\" then \"Load Scenario\". The loaded scenario will be automatically displayed in the screen;
+- To load multiples scenarios, select multiple files while in the Load Scenario option;
+- All loaded scenarios will be added in the last position of the Scenario selector.
+
++-------------------------------+
+Load scenarios by default:
+
+- To load scenarios by default, simply add the scenario file in the \"scenarios\" folder (this folder is located at the same level of the application executable).
+
++-------------------------------+
+Scenarios format:
+
+- All scenarios must be in JSON notation. The following elements are required:
+-- name (string) - Scenario's name. For displaying in the application;
+-- info (string) - Scenario's information/description. For displaying in the application;
+-- width (int) -- Scenario's width;
+-- map (array) -- Scenario's map data.
+
+- You may want to check the sample scenarios in the folder of scenarios.
+- The following values (integeres) are valid in the map data array:
+0 = EMPTY
+1 = FLOOR
+2 = TARGET
+3 = WALL
+4 = PLAYER
+5 = BOX
+6 = BOX_OVER_TARGET
+7 = PLAYER_OVER_TARGET
+",
+
+	"how_to_read_info_title": "How To Read Interface Information",
+	"how_to_read_info_content":
+"Top Bar Information:
+
+- In the top bar of the application (above File and About menus) there are the scenario's name and description.
+
++-------------------------------+
+Bottom Bar Information:
+
+- In the bottom bar of the application there are information about the scenario solving process;
+- This information will be updated only when the solver is running;
+- The available information are:
+
+-- Open List - Also know as \"frontier\". This list contains all available nodes that the solver can go to;
+
+-- Closed List - This list contains all visited nodes;
+
+-- Time Consumed (ms) - all the time that the solver spent visinting nodes and finding out its neighbors (may not match with the real time the application took to return a solution);
+
+-- Boxes Ready X/Y - Y is the amount of boxes in the map; X is the amount of boxes over a target. This is just an indicator for how close the solver is from finding a solution.
+",
+
+	"credits_title": "Credits",
+	"credits_content":
+"Copyright © 2017 Vitor Rozsa, vitor.rozsa@hotmail.com
+
+Move Box Solver is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Move Box Solver is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with Move Box Solver. If not, see<http://www.gnu.org/licenses/>.
+
+Source code is available at https://github.com/dendriel
+",
+
+	"heuristics_title": "Heuristics",
+	"heuristics_content":
+"Move Box Solver uses A* algorithm to find a solution for sokoban scenarios.
+
+- A* is suitable for finding the best path, but may be used to find a solution (steps sequence) for certain arrangement. We are using A* here for this purpose.
+- We have two kind of heuristics in Move Box Solver:
+
+1 - Heuristics that avoid the solver to follow through invalid states (and greatly reduces the time to find a solution);
+2 - Heuristcs that provide clues for which is the best state to check next. In other words, which state to pick from the open list.
+
+The first case basically checks for know traps and adds a high height for states in which these traps were found. This checking is what makes the algorithm find solutions without taking huge amount of times. Consequently, the more invalid states are know by the algorithm, the faster it will find a solution;
+
+The second case tries to find out how close a state is from a solution and setup heristics so this is state is selected next in the open list. For instance, the more boxes are over a target, more close to the solution the algorithm is. This kind of logic may be flawed because a box over a target may be blocking the way for other boxes to become ready (over a target), thus making the alogithm test many other states before trying a state in which that box is moved after others are in place.
+
+It's worth mentioning that there is not heristics based on \"movement cost\". This heuristic make states \"ahead\" in graph costly, so the solver would prefer to check every node \"closer\" to the graph base (nodes found first) before moving on. It pollutes the heuristics and doesn't provide good results.
+
++-------------------------------+
+Finally, we may see this solution as NOT brute force. For instance, we may find the maximum amount of states (A) of a scenario by simply combination:
+
+	A = n! / (n – p)!
+
+A = amount of states;
+n = amount of moveable positions (floors and targets);
+p = amount of moving elements (boxes and the player).
+
+Surely this is an approximation, because some states may not be achievable (e.g.: the player could not trap himself in a wall because it cannot pull boxes).
+
+For scenario 17, we have the following: n = 29; p = 7.Then,
+
+A = 29! / (29 -7)! ~= 7 billion and 866 milion possible states.
+
+The solver checks just a fraction of this amount (~161 thousand states) before finding a solution.(anyway, in my hardware [i5-2500 @ 3.30GHz/8GB RAM] this takes around 52 minutes and I think it is a lot of time :-] )"
+}

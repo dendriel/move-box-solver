@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8BB0171D-CC49-44E4-ABCB-6A9B04B3213D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Move_Box_Solver</RootNamespace>
+    <AssemblyName>Move Box Solver</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1PlaybackHandler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1SolverHandler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Game\Box.cs" />
+    <Compile Include="Source\Game\Directions.cs" />
+    <Compile Include="Source\Game\DynamicElement.cs" />
+    <Compile Include="Source\Game\Floor.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDefs.cs" />
+    <Compile Include="Source\Game\GameInteraction.cs" />
+    <Compile Include="Source\Game\GameManager.cs" />
+    <Compile Include="Source\Game\Player.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Game\Scenario.cs" />
+    <Compile Include="Source\Game\ScenarioData.cs" />
+    <Compile Include="Source\Game\ScenarioElement.cs" />
+    <Compile Include="Source\Game\ScenarioManager.cs" />
+    <Compile Include="Source\Solver\MBMazeNode.cs" />
+    <Compile Include="Source\Solver\MBMazeSolver.cs" />
+    <Compile Include="Source\Game\StaticElement.cs" />
+    <Compile Include="Source\Game\Target.cs" />
+    <Compile Include="Source\Game\Wall.cs" />
+    <Compile Include="Source\Solver\TrapsChecker.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Metadata\FormTexts.json" />
+    <None Include="Metadata\Scenarios\scenario01.json" />
+    <None Include="Metadata\Scenarios\scenario02.json" />
+    <None Include="Metadata\Scenarios\scenario03.json" />
+    <None Include="Metadata\Scenarios\scenario04.json" />
+    <None Include="Metadata\Scenarios\scenario05.json" />
+    <None Include="Metadata\Scenarios\scenario06.json" />
+    <None Include="Metadata\Scenarios\scenario07.json" />
+    <None Include="Metadata\Scenarios\scenario08.json" />
+    <None Include="Metadata\Scenarios\scenario09.json" />
+    <None Include="Metadata\Scenarios\scenario10.json" />
+    <None Include="Metadata\Scenarios\scenario11.json" />
+    <None Include="Metadata\Scenarios\scenario12.json" />
+    <None Include="Metadata\Scenarios\scenario13.json" />
+    <None Include="Metadata\Scenarios\scenario14.json" />
+    <None Include="Metadata\Scenarios\scenario15.json" />
+    <None Include="Metadata\Scenarios\scenario16.json" />
+    <None Include="Metadata\Scenarios\scenario17.json" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\box.png" />
+    <Content Include="Images\floor.png" />
+    <Content Include="Images\player.png" />
+    <Content Include="Images\ready_box.png" />
+    <Content Include="Images\target.png" />
+    <Content Include="Images\wall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\Unity Projects\cs-game-utils\cs-game-utils.csproj">
+      <Project>{4E08A013-E734-A38D-3C18-73600F1ED54D}</Project>
+      <Name>cs-game-utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
