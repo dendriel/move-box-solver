@@ -58,6 +58,7 @@
 			this.ReadInfosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.HeuristicsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.CreditsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.PlayTheGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.panel1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DelayBetweenMovesNumericUpDown)).BeginInit();
@@ -354,9 +355,10 @@
 			this.HowToToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.HowToSolveScenariosToolStripMenuItem,
             this.HowToLoadScenariosToolStripMenuItem,
-            this.ReadInfosToolStripMenuItem});
+            this.ReadInfosToolStripMenuItem,
+            this.PlayTheGameToolStripMenuItem});
 			this.HowToToolStripMenuItem.Name = "HowToToolStripMenuItem";
-			this.HowToToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+			this.HowToToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.HowToToolStripMenuItem.Text = "How To";
 			// 
 			// HowToSolveScenariosToolStripMenuItem
@@ -383,16 +385,23 @@
 			// HeuristicsToolStripMenuItem
 			// 
 			this.HeuristicsToolStripMenuItem.Name = "HeuristicsToolStripMenuItem";
-			this.HeuristicsToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+			this.HeuristicsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.HeuristicsToolStripMenuItem.Text = "Heuristics";
 			this.HeuristicsToolStripMenuItem.Click += new System.EventHandler(this.HeuristicsToolStripMenuItem_Click);
 			// 
 			// CreditsToolStripMenuItem
 			// 
 			this.CreditsToolStripMenuItem.Name = "CreditsToolStripMenuItem";
-			this.CreditsToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+			this.CreditsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.CreditsToolStripMenuItem.Text = "Credits";
 			this.CreditsToolStripMenuItem.Click += new System.EventHandler(this.CreditsToolStripMenuItem_Click);
+			// 
+			// PlayTheGameToolStripMenuItem
+			// 
+			this.PlayTheGameToolStripMenuItem.Name = "PlayTheGameToolStripMenuItem";
+			this.PlayTheGameToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+			this.PlayTheGameToolStripMenuItem.Text = "Play the Game";
+			this.PlayTheGameToolStripMenuItem.Click += new System.EventHandler(this.PlayTheGameToolStripMenuItem_Click);
 			// 
 			// Form1
 			// 
@@ -459,6 +468,7 @@
 		private System.Windows.Forms.ToolStripMenuItem HowToSolveScenariosToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem HowToLoadScenariosToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem ReadInfosToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem PlayTheGameToolStripMenuItem;
 	}
 }
 

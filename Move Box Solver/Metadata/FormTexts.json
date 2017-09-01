@@ -130,5 +130,12 @@ For scenario 17, we have the following: n = 29; p = 7.Then,
 
 A = 29! / (29 -7)! ~= 7 billion and 866 milion possible states.
 
-The solver checks just a fraction of this amount (~161 thousand states) before finding a solution.(anyway, in my hardware [i5-2500 @ 3.30GHz/8GB RAM] this takes around 52 minutes and I think it is a lot of time :-] )"
+The solver checks just a fraction of this amount (~161 thousand states) before finding a solution.(anyway, in my hardware [i5-2500 @ 3.30GHz/8GB RAM] this takes around 52 minutes and I think it is a lot of time :-] )",
+
+
+	"play_the_game_title": "Play the Game",
+	"play_the_game_content":
+"You may play the game by using the keybord arrow keys (up, down, left and right).
+
+After concluding a level, the next level will be loaded."
 }

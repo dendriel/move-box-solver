@@ -255,6 +255,7 @@ namespace Move_Box_Solver
 		private void LoadNextScenario()
 		{
 			if ((int)ScenarioNumericUpDown.Value >= man.ScenarioAmount) {
+				MessageBox.Show("There are no more scenarios to play. You may load a new scenario by using the \"Load Scenario\" option in File menu.", "Game Over!");
 				return;
 			}
 
@@ -379,6 +380,11 @@ namespace Move_Box_Solver
 		private void HeuristicsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			DisplayInfoMessage("heuristics");
+		}
+
+		private void PlayTheGameToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			DisplayInfoMessage("play_the_game");
 		}
 	}
 }
